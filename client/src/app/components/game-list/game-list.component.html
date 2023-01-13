@@ -1,1 +1,21 @@
-<p>game-list works!</p>
+<div class="col-md-4" *ngFor="let item of listGames">
+  <div class="card text-center">
+    <div
+      class="card-header bg-dark text-white d-flex justify-content-between align-items-center"
+    >
+      {{ item.tittle }}
+      <button class="btn btn-danger">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+    <img [src]="item.image" class="card-img-top" />
+    <div class="card-body">
+      <p>
+        {{ item.description }}
+      </p>
+      <a href="" class="btn btn-info btn-block">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </a>
+    </div>
+  </div>
+</div>
