@@ -33,7 +33,12 @@
           />
         </div>
         <br />
-        <button class="btn btn-success w-100" (click)="saveGame()">Save</button>
+        <button
+          class="btn btn-success w-100"
+          (click)="edit ? updateGame() : saveGame()"
+        >
+          Save
+        </button>
       </form>
     </div>
   </div>
