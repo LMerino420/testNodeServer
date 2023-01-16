@@ -15,6 +15,10 @@ export class GameListComponent implements OnInit {
   constructor(private gameService: GamesService) {}
 
   async ngOnInit() {
+    await this.getList();
+  }
+
+  async getList() {
     const data = await this.gameService.getGames();
     data.subscribe(async (res: any) => {
       const code = res.code;
@@ -25,6 +29,19 @@ export class GameListComponent implements OnInit {
         console.log('NOT_FOUND');
       }
       console.log('LIST =>', this.listGames);
+    });
+  }
+
+  async deleteGame(id: string) {
+    const data = await this.gameService.deleteGame(id);
+    data.subscribe(async (res: any) => {
+      const code = res.code;
+      if (code === 'SUCCESS') {
+        console.log('JUEGO ELIMINADO');
+        await this.getList();
+      } else {
+        console.log('NOT_FOUND');
+      }
     });
   }
 }

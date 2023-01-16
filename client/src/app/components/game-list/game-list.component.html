@@ -4,7 +4,7 @@
       class="card-header bg-dark text-white d-flex justify-content-between align-items-center"
     >
       {{ item.tittle }}
-      <button class="btn btn-danger">
+      <button class="btn btn-danger" (click)="deleteGame(item.id)">
         <i class="fa-solid fa-trash"></i>
       </button>
     </div>
